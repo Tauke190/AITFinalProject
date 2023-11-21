@@ -14,6 +14,8 @@ function ExperimentRegistration() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const experiment = queryParams.get('title');
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const apiUrl = `${BACKEND_URL}/user/experiment/register`;
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -24,8 +26,6 @@ function ExperimentRegistration() {
         time : time,
         experiment : experiment,
       };
-
-    const apiUrl = 'http://localhost:5000/user/experiment/register';
 
     axios.post(apiUrl, postData)
     .then(response => {

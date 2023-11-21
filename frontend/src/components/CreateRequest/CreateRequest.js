@@ -8,9 +8,9 @@ export function CreateRequest({ isVisible, onClose, timeOptions }) {
     netid: "tm2005"
   };
   const [selectedTime, setSelectedTime] = useState('');
-  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const apiUrl = `${BACKEND_URL}/api/admin/postexperiment`;
 
-  console.log(BASE_URL);
 
   const handleOptionChange = (event) => {
     setSelectedTime(event.target.value);
@@ -18,7 +18,7 @@ export function CreateRequest({ isVisible, onClose, timeOptions }) {
 
   return (
     <form
-      action="http://localhost:5000/api/admin/postexperiment"
+      action= "https://nyuexperiments.onrender.com/api/admin/postexperiment;"
       method = "POST"
       id="createRequestComponent"
       className={`create-request-component-student ${

@@ -13,7 +13,7 @@ const StudentDashboard = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`${BACKEND_URL}/api/student/experiments/`);
+        const response = await fetch(`${BACKEND_URL}/api/student/experiments`);
         const results = await response.json();
         if (results) {
           setExperimentsData(results);
