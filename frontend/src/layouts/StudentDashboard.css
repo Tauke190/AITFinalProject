@@ -1,0 +1,34 @@
+/* Table container */
+.table-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Custom table styles */
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+  }
+  
+  /* Table header */
+  .custom-table th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  /* Table data */
+  .custom-table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  /* Alternating row background color */
+  .custom-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
