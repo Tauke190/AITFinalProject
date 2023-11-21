@@ -1,8 +1,9 @@
 import { useState } from "react"; // Import useState here
 import closebutton from "./cross1.png";
-import "./CreateRequest.css";
+import "./CreateExperiment.css";
 
 export function CreateRequest({ isVisible, onClose, timeOptions }) {
+  
   const mockStudent = {
     name: "Ted Mosby",
     netid: "tm2005"
@@ -18,7 +19,7 @@ export function CreateRequest({ isVisible, onClose, timeOptions }) {
 
   return (
     <form
-      action= "https://nyuexperiments.onrender.com/api/admin/postexperiment;"
+      action= {apiUrl}
       method = "POST"
       id="createRequestComponent"
       className={`create-request-component-student ${

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreateRequest } from '../components/CreateRequest/CreateRequest'; 
+import { CreateRequest } from '../components/CreateExperiment/CreateExperiment'; 
 
 function helloWorld(){
 
