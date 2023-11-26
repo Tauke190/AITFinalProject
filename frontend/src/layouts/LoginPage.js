@@ -10,19 +10,18 @@ function LoginPage() {
   const [role, setRole] = useState('student'); // Default role is student
   const navigate = useNavigate();
 
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-  const apiUrl = `${BACKEND_URL}/user/login`;
-
-
 
   const handleLogin = () => {
-
+    const BASE_URL = process.env.REACT_APP_BACKEND_URL;
     const postData = {
         firstName: username,
         passWord: password,
       };
 
+    console.log(postData);
     
+    const apiUrl = `${BASE_URL}/user/login`;
+
     axios.post(apiUrl, postData)
     .then(response => {
         console.log(response.data);

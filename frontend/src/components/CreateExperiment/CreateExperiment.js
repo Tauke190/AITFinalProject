@@ -4,7 +4,7 @@ import "./CreateExperiment.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-export function CreateRequest({ isVisible, onClose, timeOptions }) {
+export function CreateExperiment({ isVisible, onClose, timeOptions }) {
   
   const navigate = useNavigate();
 

@@ -1,0 +1,75 @@
+.dashboard-header {
+    top: 0;
+    left: 0px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+}
+
+.school-logo, .user-avatar {
+    margin-left: 20px;
+    height: 50px;
+}
+
+.dashboard-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 200px;
+    display: flex;
+    font-weight: bolder;
+    align-items: left;
+    text-align: left;
+}
+
+.dashboard-nav ul li {
+    margin-right: 40px;
+    padding-top: 10px;
+}
+
+.dashboard-nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.search-container input[type="text"] {
+    border-radius: 5px;
+    border: none;
+    visibility: hidden;
+}
+
+.user-account {
+    margin-left: 750px;
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    margin-left: 10px;
+}
+
+.button-container {
+    margin-top: 20px;
+   
+}
+
+.button {
+    background-color: #7e57c2; /* Button purple */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bolder;
+    width: auto;
+}
+
+.button:hover {
+    background-color: #5e35b1; /* Darker shade for hover */
+}

@@ -1,19 +1,34 @@
 import React from 'react';
-import './Table.css';
-import {useNavigate } from 'react-router-dom';
+import './Table1.css';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Table = ({data}) => {
   const navigate = useNavigate();
-
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 
   const handleButtonClick = (rowData , myexperiments) => {
-    console.log(rowData);
-    navigate('/student/dashboard/register?title='+rowData.title);
+   
+    const postData = {
+      experimentName : rowData.title,
+    };
+
+  const apiUrl = `${BASE_URL}/user/experiment/unregister`;
+
+  axios.post(apiUrl, postData)
+  .then(response => {
+      console.log(response.data);
+     
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
+
+  window.location.reload(false);
   };
 
-  console.log(data);
 
   return (
     <div className="table-container">
@@ -37,7 +52,7 @@ const Table = ({data}) => {
               <td>{row.HourlyRate}</td>
               <td>{row.CurrentStatus}</td>
               <td>
-                <button onClick={() => handleButtonClick(row)}> Register </button>
+                <button className="cancelbutton" onClick={() => handleButtonClick(row)}> Cancel </button>
               </td>
             </tr>
           ))}

@@ -2,17 +2,42 @@
 
 # NYU User Experiment Recruitment platform
 
+
+## Notes for Graders
+
+[**Login Page**](https://nyulabexperiments.onrender.com/login)\
+username : test1\
+password : test1
+
+
+[**1st Form**](https://nyulabexperiments.onrender.com/student/dashboard/register?title=Social%20Science%20Experiment)\
+This form will actually put you as a registered user in the database for this particular experiment
+
+
+[**2st Form**](https://nyulabexperiments.onrender.com/admin/dashboard)\
+This is admin accessible form that will register a new experiments to be visible for the students .If you go to [**Student Dashboard**](https://nyulabexperiments.onrender.com/student/dashboard) , you can see the newly created experiment
+
+
+
+
+Significant work was done on the frontend which is entirely made of react \
+User authentication is also done with bcrpyt\
+2 forms Integrated in user and Admin\
+Significant work was done on setting up the database and designing Mongoose schema
+
+
+
 ## Overview
-The User Experiments Recruiter platform is a platform designed to streamline the process of recruiting participants for user research and experimentation done by NYU Labs. This platform  helps to connect with individuals who match the specific demographic and behavioral criteria needed for a wide range of research projects. It offers a user-friendly interface that allows researchers to define their target audience, set recruitment criteria, and monitor the recruitment progress in real time. With its ability to efficiently source diverse participants, the User Experiments Recruiter platform significantly enhances the speed and accuracy of user testing, making it an invaluable resource for researchers and social science experiments happening at NYU to obtain meaningful insights from their user experiments. It is also a platform where students can earn some money by participating in the experiment.
+The User Experiments Recruiter platform is a platform designed to streamline the process of recruiting participants for user research and experimentation done by NYU Labs. This platform  helps to connect with individuals who match the specific demographic and behavioral criteria needed for a wide range of research projects. It offers a user-friendly interface that allows researchers to define their target audience, set recruitment criteria, and monitor the recruitment progress in real-time. With its ability to efficiently source diverse participants, the User Experiments Recruiter platform significantly enhances the speed and accuracy of user testing, making it an invaluable resource for researchers and social science experiments happening at NYU to obtain meaningful insights from their user experiments. It is also a platform where students can earn some money by participating in the experiment.
 
 
 ## Data Model
 
 The application will store Users, Experiments, and Participants Info
 
-* users can have multiple properties such as firstName, lastName , email, age , gender, location, and interests
-* The experiment will have properties such as the title, description , criteria , hourly compensation , time commitment and etc
-* Participant will have the embeddings of user schema and ExperimentSchema
+* users can have multiple properties such as firstName, lastName, email, age, gender, location, and interests
+* The experiment will have properties such as the title, description, criteria, hourly compensation, time commitment, etc
+* Participants will have the embeddings of user schema and ExperimentSchema
 
 
 ```javascript
@@ -82,7 +107,7 @@ db.mjs file
 * As an experimenter, I want to easily create and manage new experiments on the platform, complete with experiment titles, descriptions, and recruitment criteria, to facilitate experimentation.
 * As a researcher, I want to receive real-time updates and notifications on the progress of participant recruitment for my experiments, so that I can stay informed about the status of my projects.
 * As a platform user, I want to efficiently find an experiment where I can earn some extra money.
-* As a platform user, I want to filter the experiments based on time commitment and my department's interests. 
+* As a platform user, I want to filter the experiments based on time commitment and my department's interests.
 
 ## Research Topics
 * (5 points) React : Using and learning react as a front-end framework

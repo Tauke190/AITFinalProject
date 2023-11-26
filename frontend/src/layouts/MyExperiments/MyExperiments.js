@@ -1,19 +1,18 @@
 import React from 'react';
-import './StudentDashboard.css';
-import Table  from '../components/Table/Table';
+import './MyExperiments.css';
+import Table1  from '../../components/Table1/Table1';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import DashboardHeader from '../components/DashboardHeader/DashboardHeader';
+import DashboardHeader from '../../components/DashboardHeader/DashboardHeader';
 
-const StudentDashboard = () => {
+
+const MyExperiment = () => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [experimentsData , setExperimentsData] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`${BACKEND_URL}/api/student/experiments/`);
+        const response = await fetch(`${BACKEND_URL}/api/student/myexperiments/`);
         const results = await response.json();
         if (results) {
           setExperimentsData(results);
@@ -28,10 +27,10 @@ const StudentDashboard = () => {
 
   return (
     <div>
-      <DashboardHeader></DashboardHeader>
-      <Table data={experimentsData}/>
+      <DashboardHeader/>
+      <Table1 data={experimentsData}/>
     </div>
   );
 };
 
-export default StudentDashboard;
+export default MyExperiment;
