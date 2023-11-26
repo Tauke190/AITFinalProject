@@ -1,14 +1,18 @@
 import { useState } from "react"; // Import useState here
 import closebutton from "./cross1.png";
 import "./CreateExperiment.css";
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 export function CreateRequest({ isVisible, onClose, timeOptions }) {
   
-  const mockStudent = {
-    name: "Ted Mosby",
-    netid: "tm2005"
-  };
+  const navigate = useNavigate();
+
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [HourlyRate, setHourlyrate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const apiUrl = `${BACKEND_URL}/api/admin/postexperiment`;
 
@@ -17,10 +21,30 @@ export function CreateRequest({ isVisible, onClose, timeOptions }) {
     setSelectedTime(event.target.value);
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const postData = {
+        title: title,
+        description: description,
+        Hourlyrate : HourlyRate,
+        TimeRequired : selectedTime,
+      };
+
+    axios.post(apiUrl, postData)
+    .then(response => {
+        console.log(response.data);
+       
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    navigate('/admin/dashboard');
+  };
+
+
+
   return (
-    <form
-      action= {apiUrl}
-      method = "POST"
+    <form onSubmit={handleFormSubmit}
       id="createRequestComponent"
       className={`create-request-component-student ${
         isVisible ? "visible" : ""
@@ -40,6 +64,7 @@ export function CreateRequest({ isVisible, onClose, timeOptions }) {
           className="issue-title-input"
           required
           name="title"
+          onChange={(e) => setTitle(e.target.value)}
         />
       </div>
       <div className="input-group description-group">
@@ -50,6 +75,7 @@ export function CreateRequest({ isVisible, onClose, timeOptions }) {
           id="description"
           className="description-input"
           name="description"
+          onChange={(e) => setDescription(e.target.value)}
           required
         />
       </div>
@@ -63,6 +89,7 @@ export function CreateRequest({ isVisible, onClose, timeOptions }) {
           className="issue-title-input"
           required
           name="Hourlyrate"
+          onChange={(e) => setHourlyrate(e.target.value)}
         />
       </div>
 

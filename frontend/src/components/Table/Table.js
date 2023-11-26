@@ -1,7 +1,6 @@
 import React from 'react';
 import './Table.css';
-import { useLocation, useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 const Table = ({data}) => {
   const navigate = useNavigate();
