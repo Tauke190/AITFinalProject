@@ -8,6 +8,7 @@ const ExperimentSchema = new mongoose.Schema({
     TimeRequired : String,
     CurrentStatus : String,
     registeredUsers : [{
+      username : String,
       name : String,
       email: String,
       date: String,

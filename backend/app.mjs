@@ -76,12 +76,35 @@ app.get('/users', async (req,res) => {
   res.send(results);
 });
 
+
+app.get('/api/student/myexperiments/', async (req,res) => {
+
+  const allexperiments = await Experiment.find({});
+  const myregisteredexperiments = [];
+
+  const myexperiments = allexperiments.filter((experiment)=>{
+    experiment.registeredUsers.forEach(element => {
+      if(element.username == "test1")
+      {
+        myregisteredexperiments.push(experiment);
+        return true
+      }
+      else
+      {
+        return false
+      }
+    })
+  })
+
+  res.send(myregisteredexperiments);
+});
+
 app.post('/user/register', async (req,res)=> {
 
-  const hashedPassword = await bcrypt.hash("test",10);
+  const hashedPassword = await bcrypt.hash("test1",10);
   const newUser = new User({
-    firstName: "test",
-    lastName: "test",
+    firstName: "test1",
+    lastName: "test1",
     passWord : hashedPassword,
   });
 
@@ -98,6 +121,8 @@ app.post('/user/register', async (req,res)=> {
 });
 
 app.post('/user/login', async (req,res)=> {
+
+  console.log(req.body);
 
   const user = await User.findOne({firstName : req.body.firstName});
 
@@ -125,9 +150,8 @@ app.post('/user/experiment/register', async (req,res)=> {
 
   const experiment = await Experiment.findOne({title : req.body.experiment});
 
-  console.log(experiment);
-
   const registeredUser = {
+    username : "test1",
     name : req.body.name,
     email : req.body.email,
     date : req.body.date,
@@ -136,6 +160,26 @@ app.post('/user/experiment/register', async (req,res)=> {
   experiment.registeredUsers.push(registeredUser);
 
   const result = await experiment.save();
+});
+
+
+app.post('/user/experiment/unregister', async (req,res)=> {
+
+  const experiment = await Experiment.findOne({title : req.body.experimentName});
+
+
+  console.log(experiment);
+
+  experiment.registeredUsers.forEach((user) =>{
+    if(user.username == 'test1')
+    {
+      const index = experiment.registeredUsers.indexOf(user);
+      experiment.registeredUsers.splice(index,1);
+    }
+  })
+
+  const result = await experiment.save();
+
 });
 
 

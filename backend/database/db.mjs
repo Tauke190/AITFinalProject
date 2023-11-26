@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 
+
 const connectionString = process.env.MONGODB_URI;
 console.log(process.env.MONGODB_URI);
 console.log(process.env.BACKEND_URL);
